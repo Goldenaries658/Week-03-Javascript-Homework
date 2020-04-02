@@ -1,19 +1,31 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 
-var passwordLength = 0;
-
 function generatePassword() {
-  var passwordLength = prompt(
+  var passwordLen = prompt(
     'Choose a password length. (Must be 8-128 characters)'
   );
-  while (passwordLength > 128 || passwordLength < 8) {
-    if (passwordLength === null) {
-      close();
-    } else {
-      alert('Password has to be between 8-128 characters.');
-      passwordLength = prompt('Choose a password length.');
+  while (
+    passwordLen < 8 ||
+    passwordLen > 128 ||
+    typeof passwordLen === 'string'
+  ) {
+    if (typeof passwordLen === 'string') {
+      passwordLen = passwordLen.toLowerCase();
+      console.log(passwordLen);
+
+      if (passwordLen === 'quit') {
+        break;
+      } else {
+        alert('Enter a number.');
+      }
     }
+    alert('Password has to be between 8-128 characters.');
+    passwordLen = prompt('Choose a password length. Enter quit to stop.');
+  }
+
+  if (passwordLen === 'quit') {
+    return null;
   }
 }
 
