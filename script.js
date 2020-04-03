@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 
+
 function generatePassword() {
   var passwordLen = prompt(
     'Choose a password length.\n(Must be 8-128 characters)'
@@ -22,8 +23,34 @@ function generatePassword() {
       break;
     }
   }
-}
 
+  var charSet = {};
+  var charProps = [
+    'Uppercase characters',
+    'Lowercase characters',
+    'Numbers',
+    'Special characters'
+  ];
+
+  for (i = 0; i < 4; i++) {
+    var chars = charSet[charProps[i]];
+    chars = prompt(charProps[i] + '? (Y/N)');
+
+    if (chars === null) {
+      break;
+    }
+
+    chars = chars.toLowerCase();
+
+    while (chars != 'y' && chars != 'n') {
+      alert('Enter Y or N.');
+      chars = prompt(charProps[i] + '?');
+      if (chars === null) {
+        break;
+      }
+    }
+  }
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
