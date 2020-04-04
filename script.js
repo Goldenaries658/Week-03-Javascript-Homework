@@ -6,7 +6,7 @@ function generatePassword() {
     'Choose a password length.\n(Must be 8-128 characters)'
   );
 
-  if (passwordLen === null) {
+  if (!passwordLen) {
     return 'Cancelled.';
   }
 
@@ -19,7 +19,7 @@ function generatePassword() {
     alert('Password has to be between 8-128 characters.');
     passwordLen = prompt('Choose a password length.');
 
-    if (passwordLen === null) {
+    if (!passwordLen) {
       break;
     }
   }
@@ -38,7 +38,7 @@ function generatePassword() {
       var chars = charType[charProps[i]];
       chars = prompt(charProps[i] + '? (Y/N)');
 
-      if (chars === null) {
+      if (!chars) {
         break;
       }
 
@@ -48,7 +48,7 @@ function generatePassword() {
         alert('Enter Y or N.');
         chars = prompt(charProps[i] + '?');
 
-        if (chars === null) {
+        if (!chars) {
           break;
         }
       }
@@ -58,7 +58,7 @@ function generatePassword() {
       }
     }
 
-    if (chars === null) {
+    if (!chars) {
       break;
     }
 
@@ -67,11 +67,11 @@ function generatePassword() {
     }
   }
 
-  if (chars === null) {
+  if (!chars) {
     return 'Cancelled';
   }
 
-  
+
 }
 // Write password to the #password input
 function writePassword() {
