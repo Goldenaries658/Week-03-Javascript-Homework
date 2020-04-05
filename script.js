@@ -116,6 +116,16 @@ function generatePassword() {
 
   var genPass = '';
 
+  // Generating the password using charSet array
+  function randomiser() {
+    return Math.floor(Math.random() * charSet.length);
+  }
+
+  for (i = 0; i < passwordLen; i++) {
+    genPass = genPass + charSet[randomiser()];
+  }
+
+  return genPass;
 }
 // Write password to the #password input
 function writePassword() {
