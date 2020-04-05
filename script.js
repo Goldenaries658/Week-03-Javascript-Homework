@@ -48,6 +48,10 @@ function generatePassword() {
     }
   }
 
+  if (!passwordLen) {
+    return 'Cancelled.';
+  }
+
   var charType = {};
   var charProps = [
     'Lowercase characters',
@@ -92,7 +96,7 @@ function generatePassword() {
   }
 
   if (!chars) {
-    return 'Cancelled';
+    return 'Cancelled.';
   }
 
   // Generating an array of characters to use
