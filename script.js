@@ -1,8 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector('#generate');
 
-//Character sets
-
 //Generates a lowercase alphabet
 function genLowCase() {
   var lowCase = [];
@@ -50,7 +48,7 @@ function generatePassword() {
     }
   }
 
-  var charList = [];
+  var charType = {};
   var charProps = [
     'Lowercase characters',
     'Uppercase characters',
@@ -61,7 +59,8 @@ function generatePassword() {
 
   while (charTypeCount == 0) {
     for (i = 0; i < 4; i++) {
-      var chars = prompt(charProps[i] + '? (Y/N)');
+      charType[charProps[i]] = prompt(charProps[i] + '? (Y/N)');
+      var chars = charType[charProps[i]];
 
       if (!chars) {
         break;
