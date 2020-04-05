@@ -94,6 +94,28 @@ function generatePassword() {
   if (!chars) {
     return 'Cancelled';
   }
+
+  // Generating an array of characters to use
+  var charSet = [];
+
+  if (charType[charProps[0]] == 'y') {
+    charSet = charSet.concat(genLowCase());
+  }
+
+  if (charType[charProps[1]] == 'y') {
+    charSet = charSet.concat(genUpCase());
+  }
+
+  if (charType[charProps[2]] == 'y') {
+    charSet = charSet.concat(numsSet);
+  }
+
+  if (charType[charProps[3]] == 'y') {
+    charSet = charSet.concat(specSet);
+  }
+
+  var genPass = '';
+
 }
 // Write password to the #password input
 function writePassword() {
